@@ -46,7 +46,7 @@ Or open `index.html` directly in a browser, or serve the folder with any static 
 
 It's a static site. `npm run build` copies the site files into `dist/` (that folder is what gets published).
 
-- **Netlify:** `netlify.toml` already sets the build command and publish directory. Deploy with `npx netlify-cli deploy --prod --dir dist`, or connect the repo for deploys on every push.
+- **Netlify:** `netlify.toml` sets the build command and publish directory, and the site is connected to this repo, so every push to `main` deploys automatically. A manual deploy also works: `npx netlify-cli deploy --prod --dir dist`.
 - **Anywhere else:** GitHub Pages, Cloudflare Pages or Vercel work too; publish the `dist/` folder.
 
 ## Project structure
