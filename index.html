@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="id" data-theme="dark"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Power of Sleep — Panduan Interaktif</title>
+  <meta name="description" content="Pendamping interaktif tidak resmi untuk buku The Power of Sleep karya Vishal Dasani: kalkulator siklus dan utang tidur, panduan napas, daftar periksa kamar tidur, dan jawaban untuk masalah tidur umum.">
+  <meta name="theme-color" content="#090d1c">
+  <meta property="og:title" content="The Power of Sleep — Panduan Interaktif">
+  <meta property="og:description" content="Tidur adalah kemampuan bawaan. Jelajahi gagasan di balik tidur yang lebih baik lewat kalkulator, panduan napas, dan daftar periksa.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply theme before paint to avoid a flash. Storage can be unavailable, so guard it.
+    (function () {
+      var t = "dark";
+      try {
+        var s = localStorage.getItem("pos:theme");
+        if (s) t = JSON.parse(s);
+        else if (window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches) t = "light";
+      } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="s001">Langsung ke konten</a>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="The Power of Sleep — kembali ke atas" data-i18n-aria-label="s002">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M21.5 4.5A12.5 12.5 0 1 0 27.5 22 10 10 0 0 1 21.5 4.5z" fill="var(--gold)"></path></svg>
+        <span data-i18n="s003">The Power of Sleep</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Bab" data-i18n-aria-label="s004">
+        <a href="#sleep101" data-i18n="s005">1 · Sleep 101</a>
+        <a href="#lifestyle" data-i18n="s006">2 · Gaya Hidup</a>
+        <a href="#stages" data-i18n="s007">3 · Tahap Kehidupan</a>
+        <a href="#mind" data-i18n="s008">4 · Tubuh &amp; Pikiran</a>
+        <a href="#bedroom" data-i18n="s009">5 · Kamar Tidur</a>
+        <a href="#problems" data-i18n="s010">6 · Masalah Tidur</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Bahasa / Language"><button type="button" data-lang="id" aria-pressed="true">ID</button><button type="button" data-lang="en" aria-pressed="false">ENG</button></div><button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema terang dan gelap" data-i18n-aria-label="s011">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ======================= HERO ======================= -->
+    <section class="hero" id="top">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow" data-i18n="s012">Panduan interaktif</span>
+          <h1 data-i18n="s013">The Power of <em>Sleep</em></h1>
+          <p class="lede" data-i18n="s014">Tidur adalah kemampuan bawaan, bukan sesuatu yang harus diperjuangkan. Halaman ini mengubah gagasan dari buku Vishal Dasani menjadi hal yang bisa kamu coba langsung: kalkulator, panduan napas, dan daftar periksa, supaya kamu memahami tidurmu dan memperbaikinya mulai malam ini.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#check" data-i18n="s015">Ikuti cek 1 menit</a>
+            <a class="btn btn-ghost" href="#sleep101" data-i18n="s016">Mulai dari Bab 1</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b data-i18n="s017">90 mnt</b><span data-i18n="s018">per siklus tidur</span></div>
+            <div class="stat"><b data-i18n="s312">7–9 jam</b><span data-i18n="s019">kebutuhan umum orang dewasa</span></div>
+            <div class="stat"><b>18–22 °C</b><span data-i18n="s020">kamar sejuk dan tenang</span></div>
+          </div>
+        </div>
+        <div class="moon-wrap" aria-hidden="true">
+          <svg class="hero-moon" viewBox="0 0 200 200">
+            <defs>
+              <radialGradient id="mg" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff6dc"></stop><stop offset="0.6" stop-color="#ffd89a"></stop><stop offset="1" stop-color="#e9a95b"></stop></radialGradient>
+              <mask id="mm"><rect width="200" height="200" fill="#fff"></rect><circle cx="132" cy="78" r="64" fill="#000"></circle></mask>
+            </defs>
+            <circle cx="100" cy="100" r="78" fill="url(#mg)" mask="url(#mm)"></circle>
+            <g fill="#e1a152" opacity="0.45" mask="url(#mm)"><circle cx="58" cy="108" r="9"></circle><circle cx="82" cy="146" r="6"></circle><circle cx="48" cy="76" r="5"></circle></g>
+          </svg>
+          <span class="zzz">z</span><span class="zzz">z</span><span class="zzz">Z</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= QUICK CHECK ======================= -->
+    <section class="section" id="check" style="padding-top:0;padding-bottom:24px">
+      <div class="container">
+        <div class="tool reveal">
+          <span class="tool-label" data-i18n="s021">Mulai dari mana?</span>
+          <h3 data-i18n="s022">Cek tidur 1 menit</h3>
+          <p class="hint" data-i18n="s023">Centang semua yang terasa seperti kamu. Kami akan menunjukkan bagian panduan yang paling relevan. Tidak ada data yang disimpan atau dikirim ke mana pun.</p>
+          <form id="checkForm" class="split" aria-describedby="checkOut">
+            <div class="checks">
+              <label class="check"><input type="checkbox" data-go="#habits" data-w="0"><span><b data-i18n="s024">Saya suka menunda tidur</b><small data-i18n="s025">Scrolling, maraton tontonan, atau “waktu untuk diri sendiri” di malam hari.</small></span></label>
+              <label class="check"><input type="checkbox" data-go="#worry" data-w="1"><span><b data-i18n="s026">Pikiran saya ramai saat di tempat tidur</b><small data-i18n="s027">Kekhawatiran dan daftar tugas langsung muncul begitu saya berbaring.</small></span></label>
+              <label class="check"><input type="checkbox" data-go="#substances" data-w="2"><span><b data-i18n="s028">Kopi, vape, atau minuman lain di sore hingga malam</b><small data-i18n="s029">Kafein setelah makan siang, nikotin atau alkohol menjelang tidur.</small></span></label>
+              <label class="check"><input type="checkbox" data-go="#debt" data-w="3"><span><b data-i18n="s030">Jadwal saya berbeda jauh antara hari kerja dan akhir pekan</b><small data-i18n="s031">Tidur pendek sepanjang minggu, lalu bangun siang di akhir pekan.</small></span></label>
+            </div>
+            <div class="checks">
+              <label class="check"><input type="checkbox" data-go="#bedroom" data-w="4"><span><b data-i18n="s032">Kamar saya terang, panas, atau berisik</b><small data-i18n="s033">Atau kasur dan bantal saya sudah tua atau tidak nyaman.</small></span></label>
+              <label class="check"><input type="checkbox" data-go="#problems" data-w="5"><span><b data-i18n="s034">Saya mengorok, atau bangun dalam keadaan tidak segar</b><small data-i18n="s035">Padahal jam tidurnya seharusnya cukup.</small></span></label>
+              <label class="check"><input type="checkbox" data-go="#jetlag" data-w="6"><span><b data-i18n="s036">Perjalanan atau kerja shift mengacaukan tidur saya</b><small data-i18n="s037">Beda zona waktu, shift malam, atau jadwal berputar.</small></span></label>
+              <label class="check"><input type="checkbox" data-go="#sleepnumbers" data-w="7"><span><b data-i18n="s038">Saya tidak tahu berapa banyak tidur yang sebenarnya saya butuhkan</b><small data-i18n="s039">Atau apakah saya tergolong “good sleeper” atau “poor sleeper”.</small></span></label>
+            </div>
+          </form>
+          <div id="checkOut" class="callout info" aria-live="polite" style="margin-bottom:0"><p>Tick a few boxes above to see your suggested starting points.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CHAPTER 1 ======================= -->
+    <section class="section" id="sleep101" data-nav="">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s040">Bab 1</span>
+          <h2 data-i18n="s041">Sleep 101</h2>
+          <p class="lede" data-i18n="s042">Tidur adalah satu dari tiga bakat alami, bersama makan dan berkembang biak. Saat tidur, hormon diatur ulang, racun dibuang, sel diperbaiki, ingatan disusun, dan sistem imun bersiap untuk hari berikutnya.</p>
+        </header>
+
+        <div class="grid g3 reveal">
+          <div class="card"><span class="ico" aria-hidden="true">⏱️</span><h3 data-i18n="s043">Biologis</h3><p class="muted" data-i18n="s044">Jam biologis (ritme sirkadian) dan tekanan tidur menentukan <em>kapan</em> kamu bisa tidur.</p></div>
+          <div class="card"><span class="ico" aria-hidden="true">🧠</span><h3 data-i18n="s045">Psikologis</h3><p class="muted" data-i18n="s046">Pikiran tenang dan suasana hati yang stabil satu jam sebelum tidur membuat terlelap jauh lebih mudah.</p></div>
+          <div class="card"><span class="ico" aria-hidden="true">🛏️</span><h3 data-i18n="s047">Lingkungan</h3><p class="muted" data-i18n="s048">Cahaya, suara, suhu, dan kenyamanan kamar bisa membantu atau justru mengganggumu.</p></div>
+        </div>
+
+        <div class="sub-head reveal"><h3 data-i18n="s049">Dua kekuatan di balik rasa mengantuk</h3></div>
+        <p class="sub-lede reveal" data-i18n="s050">Jam biologis menentukan kapan tidur “diizinkan”; tekanan tidur (rasa lelah yang menumpuk selama kamu terjaga) yang benar-benar membawamu terlelap. Saat tekanan tinggi dan jam biologis sedang rendah, kebanyakan orang tertidur dalam sekitar 10–20 menit.</p>
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s051">Interaktif</span>
+            <h3 data-i18n="s052">Jendela tidur 24 jam</h3>
+            <p class="hint" data-i18n="s053">Geser slider sepanjang hari biasa (bangun pukul 07.00). Ini model sederhana sebagai ilustrasi, bukan pengukuran.</p>
+            <svg class="chart" id="clock" viewBox="0 0 520 250" role="img" aria-label="Chart of sleep pressure and body-clock alertness across 24 hours"></svg>
+            <div class="legend"><span data-i18n="s054"><i style="background:var(--accent)"></i>Tekanan tidur</span><span data-i18n="s055"><i style="background:var(--gold)"></i>Kewaspadaan jam biologis</span></div>
+            <div class="field" style="margin-top:18px">
+              <div class="row"><label for="clockHour" data-i18n="s056">Waktu</label><output id="clockTime">7:00 AM</output></div>
+              <input type="range" id="clockHour" min="0" max="23.5" step="0.5" value="7">
+            </div>
+            <div class="meter" aria-hidden="true"><i id="clockMeter"></i></div>
+            <p id="clockOut" class="small" style="margin:10px 0 0" aria-live="polite"></p>
+          </div>
+
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s057">Kalkulator</span>
+            <h3 data-i18n="s058">Perencana siklus tidur</h3>
+            <p class="hint" data-i18n="s059">Tidur berlangsung dalam siklus sekitar 90 menit, masing-masing berisi tidur ringan, dalam, dan REM. Orang dewasa butuh sekitar 4–6 siklus. Kami mengasumsikan ±15 menit untuk terlelap.</p>
+            <div class="field"><span class="segmented" role="radiogroup" aria-label="Mode perencana" data-i18n-aria-label="s060">
+              <label><input type="radio" name="cycleMode" value="wake" checked=""><span data-i18n="s061">Saya harus bangun pukul…</span></label>
+              <label><input type="radio" name="cycleMode" value="bed"><span data-i18n="s062">Saya akan tidur pukul…</span></label>
+            </span></div>
+            <div class="field"><label for="cycleTime" data-i18n="s063">Jam</label><input type="time" id="cycleTime" value="07:00"></div>
+            <ul class="cycle-list" id="cycleOut" aria-live="polite"></ul>
+          </div>
+        </div>
+
+        <div class="sub-head reveal"><h3 data-i18n="s064">Tiga fase tidur</h3></div>
+        <div class="split">
+          <div class="card reveal stages">
+            <div class="stage light"><div class="dot" aria-hidden="true">🌫️</div><div><h4 data-i18n="s065">Tidur ringan</h4><p class="muted" data-i18n="s066">Pintu masuk: tubuh dan otak melambat, dan kamu masih mudah terbangun.</p></div></div>
+            <div class="stage deep"><div class="dot" aria-hidden="true">🌊</div><div><h4 data-i18n="s067">Tidur dalam</h4><p class="muted" data-i18n="s068">Pemulihan fisik: detoks, perbaikan jaringan dan otot, serta sistem imun yang lebih kuat.</p></div></div>
+            <div class="stage rem"><div class="dot" aria-hidden="true">✨</div><div><h4 data-i18n="s069">Tidur REM</h4><p class="muted" data-i18n="s070">Fase bermimpi, penting untuk suasana hati, pemulihan emosi, dan ingatan.</p></div></div>
+          </div>
+          <div class="card reveal">
+            <h3 data-i18n="s071">Apa yang memengaruhi kualitas tiap fase?</h3>
+            <p class="muted" data-i18n="s072">Terutama konsistensi dan gaya hidup: jam tidur dan bangun yang teratur, serta pilihan soal rokok, kafein, alkohol, makanan, dan olahraga.</p>
+            <p class="muted" data-i18n="s073"><strong>Kurang dari 4 siklus</strong> berarti kurang tidur; <strong>lebih dari 6</strong> berarti kelebihan tidur. Dalam jangka panjang, keduanya berdampak negatif.</p>
+            <p class="muted" style="margin:0" data-i18n="s074">Tidak setiap malam akan sempurna, dan itu normal.</p>
+          </div>
+        </div>
+
+        <div class="sub-head reveal"><h3 data-i18n="s075">Apakah ini insomnia, atau hal lain?</h3></div>
+        <p class="sub-lede reveal" data-i18n="s076">Tidak semua masalah tidur adalah insomnia. Insomnia berarti sulit memulai atau mempertahankan tidur padahal waktu dan kesempatannya cukup. Gangguan lain punya tanda dan solusi yang berbeda.</p>
+        <div class="split">
+          <div class="card reveal">
+            <h4 data-i18n="s077">Insomnia menurut durasi</h4>
+            <ul class="muted">
+              <li data-i18n="s078"><strong>Akut:</strong> berlangsung sekitar 1 minggu hingga 3 bulan.</li>
+              <li data-i18n="s079"><strong>Kronis:</strong> berlangsung lebih dari 3 bulan, kadang bertahun-tahun.</li>
+            </ul>
+            <h4 style="margin-top:14px" data-i18n="s080">Insomnia menurut penyebab</h4>
+            <ul class="muted">
+              <li data-i18n="s081"><strong>Primer:</strong> tidak disebabkan kondisi lain atau obat. Biasanya berawal dari stres atau cemas yang berubah menjadi pola pikir negatif tentang tidur. Terapi perilaku kognitif untuk insomnia (CBT-I) adalah pendekatan yang terbukti efektif.</li>
+              <li data-i18n="s082"><strong>Sekunder:</strong> gejala dari hal lain, misalnya kondisi kesehatan atau efek samping obat. Atasi faktor penyebabnya dan jaga gaya hidup sehat dengan jadwal tidur yang stabil.</li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <h4 data-i18n="s083">Gangguan tidur lainnya</h4>
+            <ul class="muted">
+              <li data-i18n="s084"><strong>Sleep apnea:</strong> napas berulang kali terhenti saat tidur; mengorok keras dan sangat lelah meski sudah tidur semalaman.</li>
+              <li data-i18n="s085"><strong>Narkolepsi:</strong> kantuk ekstrem di siang hari dan serangan tidur mendadak.</li>
+              <li data-i18n="s086"><strong>Gangguan ritme sirkadian:</strong> jam biologis tidak sinkron dengan jadwal. Contoh klasiknya jet lag.</li>
+              <li data-i18n="s087"><strong>Restless legs syndrome (RLS):</strong> dorongan kuat untuk menggerakkan kaki saat beristirahat.</li>
+              <li data-i18n="s088"><strong>Parasomnia:</strong> perilaku tidak biasa saat tidur: berjalan, berbicara, atau night terror.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout reveal"><strong data-i18n="s089">Banyak pikiran: apakah itu masalahnya?</strong><p data-i18n="s090">Tergantung waktunya. Pikiran yang berpacu <em>tepat sebelum tidur</em> (hyperarousal) mempercepat detak jantung, mengacaukan napas, dan menaikkan suhu tubuh, sehingga sulit tidur. Jika lalu kamu mengandalkan alat bantu tidur sebagai solusi utama, kamu berisiko bergantung padanya dan makin kurang percaya pada kemampuan alamimu.</p></div>
+      </div>
+    </section>
+
+    <!-- ======================= CHAPTER 2 ======================= -->
+    <section class="section alt" id="lifestyle" data-nav="">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s091">Bab 2</span>
+          <h2 data-i18n="s092">Gaya Hidup</h2>
+          <p class="lede" data-i18n="s093">Cara kamu makan, bekerja, minum, bergerak, dan bepergian membentuk cara kamu tidur. Keseimbangan antara nutrisi, stimulan, aktivitas, dan beban kerja yang menjaga malammu tetap nyenyak.</p>
+        </header>
+
+        <div class="sub-head reveal" id="shift"><h3 data-i18n="s094">Bekerja di jam tidak biasa</h3></div>
+        <p class="sub-lede reveal" data-i18n="s095">Tidur cukup mempertajam fokus, kreativitas, dan suasana hati, serta mengurangi absen sakit. Pekerja shift punya masalah bawaan: mereka tidur saat jam biologis berkata “terjaga”. Tidur siang juga terganggu cahaya, suara, dan aktivitas. Enam kebiasaan ini membantu.</p>
+        <div class="reveal" id="shiftList">
+          <details open=""><summary data-i18n="s096"><span class="num">1</span>Pertahankan pola shift yang tetap dan tidur yang konsisten</summary><div class="body"><p data-i18n="s097">Jika memungkinkan, minta shift tetap, bukan berputar, agar tubuh bisa beradaptasi. Tidur dan bangun di jam yang mirip setiap hari, termasuk hari libur. Jika harus berputar, putar ke depan: pagi → sore → malam lebih mudah diadaptasi daripada arah sebaliknya.</p></div></details>
+          <details><summary data-i18n="s098"><span class="num">2</span>Bicarakan dengan orang serumah</summary><div class="body"><p data-i18n="s099">Minta keluarga memahami kebutuhan tidurmu dan membantu menjaga rumah tetap tenang saat kamu tidur.</p></div></details>
+          <details><summary data-i18n="s100"><span class="num">3</span>Atur paparan cahaya</summary><div class="body"><p data-i18n="s101">Setelah shift malam, hindari cahaya terang, pakai tirai gelap, dan jaga ruangan tetap sunyi agar terasa seperti malam. Saat bangun di sore atau malam hari, cari cahaya terang agar tubuh tahu sudah waktunya terjaga.</p></div></details>
+          <details><summary data-i18n="s102"><span class="num">4</span>Berolahraga sebelum shift malam</summary><div class="body"><p data-i18n="s103">Kamu jadi lebih segar saat bekerja dan lebih mudah tidur setelah selesai.</p></div></details>
+          <details><summary data-i18n="s104"><span class="num">5</span>Tidur singkat jika sangat lelah</summary><div class="body"><p data-i18n="s105">Jika kamu kelelahan, utamakan tidur singkat sebelum shift malam daripada olahraga. Rasa lelah berkurang dan tubuh terasa lebih segar.</p></div></details>
+          <details><summary data-i18n="s106"><span class="num">6</span>Rileks selama 15–30 menit</summary><div class="body"><p data-i18n="s107">Ritual relaksasi seperti meditasi atau membaca mengalihkan pikiran dari kekhawatiran, meredakan ketegangan otot, dan memperkuat rutinitas tidurmu.</p></div></details>
+        </div>
+
+        <div class="sub-head reveal" id="debt"><h3 data-i18n="s108">Utang tidur: bisakah “dilunasi” di akhir pekan?</h3></div>
+        <p class="sub-lede reveal" data-i18n="s109">Utang tidur menumpuk saat kamu tidur lebih sedikit dari kebutuhan tubuh selama beberapa hari atau minggu berturut-turut. Bangun siang di akhir pekan memang sedikit membantu, tetapi tidak bisa melunasinya, dan bisa memicu “social jet lag”: Minggu malam makin sulit tidur dan Senin pagi makin berat.</p>
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s110">Kalkulator</span>
+            <h3 data-i18n="s111">Kalkulator utang tidur hari kerja</h3>
+            <p class="hint" data-i18n="s112">Pilih berapa lama kamu butuh tidur dan berapa lama kamu tidur di hari kerja.</p>
+            <div class="field"><div class="row"><label for="debtNeed" data-i18n="s113">Jam tidur yang saya butuhkan per malam</label><output id="debtNeedOut">7 h</output></div><input type="range" id="debtNeed" min="6" max="10" step="0.5" value="7"></div>
+            <div class="field"><div class="row"><label for="debtSlept" data-i18n="s114">Jam tidur saya yang sebenarnya di hari kerja</label><output id="debtSleptOut">5 h</output></div><input type="range" id="debtSlept" min="3" max="10" step="0.5" value="5"></div>
+          </div>
+          <div class="card reveal">
+            <div class="bars" id="debtBars" role="img" aria-label="Bar chart of hours slept each weekday compared to the hours needed"></div>
+            <div class="legend"><span data-i18n="s115"><i style="background:var(--accent)"></i>Tidur</span><span data-i18n="s116"><i style="background:var(--bad)"></i>Kekurangan</span><span data-i18n="s117"><i style="background:var(--gold)"></i>Kebutuhan</span></div>
+            <p id="debtOut" style="margin:14px 0 0" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="callout reveal"><strong data-i18n="s118">Lebih baik daripada mengejar tidur di akhir pekan</strong><p data-i18n="s119">Daripada mengorbankan tidur demi lembur yang sebenarnya bisa dikerjakan besok, lalu menghabiskan akhir pekan untuk memulihkan diri, lebih baik jaga tidur setiap malam. Kamu tetap produktif dan akhir pekan bisa dipakai bersenang-senang.</p></div>
+
+        <div class="sub-head reveal" id="substances"><h3 data-i18n="s120">Nikotin, kafein, dan alkohol</h3></div>
+        <p class="sub-lede reveal" data-i18n="s121">Pergaulan masa kini sering melibatkan begadang dan zat stimulan. Semuanya bisa terasa menenangkan saat itu juga, tetapi masing-masing memengaruhi tidur dengan cara berbeda.</p>
+        <div class="split">
+          <div class="tool reveal"><span class="tool-label" data-i18n="s122">Jelajahi</span><div id="subTabs"></div></div>
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s123">Kalkulator</span>
+            <h3 data-i18n="s124">Batas waktu kafein</h3>
+            <p class="hint" data-i18n="s125">Kafein menahan rasa lelah selama beberapa jam, dan sisanya di tubuh bisa mengurangi tidur dalam meski kamu tetap tertidur. Aturan praktisnya: berhenti minimal 6 jam sebelum tidur.</p>
+            <div class="field"><label for="cafBed" data-i18n="s126">Jam tidur saya</label><input type="time" id="cafBed" value="23:00"></div>
+            <p class="muted small" style="margin:0" data-i18n="s127">Kopi, teh, atau minuman energi terakhir paling lambat pukul</p>
+            <p class="big" id="cafOut" style="margin:2px 0 12px" aria-live="polite">5:00 PM</p>
+            <ul class="muted small">
+              <li data-i18n="s128">Merasa gelisah atau sulit tidur? Coba kurangi, atau hentikan kafein beberapa hari lalu bandingkan.</li>
+              <li data-i18n="s129">Kopi tanpa kafein (decaf) bisa jadi pengganti di sore hari.</li>
+              <li data-i18n="s130">Jika kamu mengandalkan kafein untuk melawan lelah di siang hari, benahi tidur malammu.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid g2 reveal" style="margin-top:22px">
+          <div class="card"><span class="ico" aria-hidden="true">🛋️</span><h4 data-i18n="s131">Gaya hidup “rebahan”: terlalu banyak tidur</h4><p class="muted" data-i18n="s132">Rutin tidur lebih dari 9 jam dikaitkan dengan kondisi kesehatan lain (misalnya depresi, diabetes, dan penyakit jantung), kesehatan mental yang buruk, jam biologis yang terganggu, serta waktu yang berkurang untuk olahraga dan bersosialisasi. Lebih banyak bukan berarti lebih baik. Tujuannya: jumlah yang pas.</p></div>
+          <div class="card"><span class="ico" aria-hidden="true">🏃</span><h4 data-i18n="s133">Hustle culture: terlalu sedikit tidur</h4><p class="muted" data-i18n="s134">Begadang dan bangun terlalu pagi mengacaukan siklus tidur-bangun, dan kerja berlebihan menaikkan hormon stres seperti kortisol. Ingatan dan pengambilan keputusan menurun, risiko penyakit jantung, diabetes, cemas, dan depresi naik. Ironisnya, kelelahan justru memangkas produktivitas yang ingin dikejar. <strong>Work hard, rest hard.</strong></p></div>
+        </div>
+
+        <div class="sub-head reveal" id="food"><h3 data-i18n="s135">Makan untuk tidur</h3></div>
+        <p class="sub-lede reveal" data-i18n="s136">Pola makan seimbang mendukung produksi melatonin (triptofan, magnesium, vitamin B6 dan D), menjaga gula darah stabil (mencegah “sugar crash” malam hari yang bisa membangunkanmu), dan melancarkan pencernaan sehingga risiko asam lambung berkurang.</p>
+        <div class="grid g3 reveal" id="foodGrid"></div>
+        <div class="grid g2" style="margin-top:18px">
+          <div class="card reveal"><h4 data-i18n="s137">Aturan praktis</h4><ul class="muted"><li data-i18n="s138">Makan beragam dari semua kelompok: karbohidrat, protein, dan lemak.</li><li data-i18n="s139">Makan cukup sepanjang hari agar tidak berlebihan di malam hari, dan perhatikan porsi makan malam.</li><li data-i18n="s140">Beri jeda sekitar 3–4 jam antara makan malam dan waktu tidur.</li><li data-i18n="s141">Minum cukup sepanjang hari, lalu kurangi mendekati jam tidur agar tidak terbangun karena haus atau kandung kemih penuh.</li></ul></div>
+          <div class="card reveal"><h4 data-i18n="s142">Apakah suplemen tidur adalah jawabannya?</h4><p class="muted" data-i18n="s143">Melatonin, magnesium, dan herbal seperti valerian root atau ashwagandha sering dianggap solusi segala masalah. Padahal tidak. Manfaat jangka panjangnya belum terbukti, dan efeknya bisa berupa sakit kepala, ketergantungan, hingga panik saat suplemen habis. Masalah berbeda butuh solusi berbeda: CBT-I untuk insomnia kronis, relaksasi untuk cemas, dan perubahan gaya hidup untuk banyak kasus lain.</p></div>
+        </div>
+
+        <div class="sub-head reveal" id="exercise"><h3 data-i18n="s144">Olahraga adalah obat tidur</h3></div>
+        <p class="sub-lede reveal" data-i18n="s145">Olahraga rutin membuat kamu lebih cepat tertidur dan tidur lebih dalam, serta meringankan gejala insomnia dan sleep apnea. Tidak ada jenis yang paling unggul; pilih yang kamu nikmati dan membuatmu merasa lebih baik.</p>
+        <div class="grid g3 reveal" id="exGrid"></div>
+        <div class="grid g2" style="margin-top:18px">
+          <div class="callout reveal" style="margin:0"><strong data-i18n="s146">Waktu</strong><p data-i18n="s147">Selesaikan sesi intens minimal 2–3 jam sebelum tidur agar tubuh sempat mendingin. Berolahraga di jam yang mirip setiap hari juga membantu menjangkarkan jam biologis.</p></div>
+          <div class="callout info reveal" style="margin:0"><strong data-i18n="s148">Pemulihan</strong><p data-i18n="s149">Jika tubuh sedang lelah, istirahatlah daripada memaksa olahraga intens. Overtraining dan kurang pemulihan justru bisa membuatmu sulit tidur.</p></div>
+        </div>
+
+        <div class="sub-head reveal" id="jetlag"><h3 data-i18n="s150">Liburan dan jet lag</h3></div>
+        <p class="sub-lede reveal" data-i18n="s151">Tidur saat liburan sering terasa lebih enak: stres berkurang, suasana tenang, lebih aktif (tekanan tidur naik), dan tanpa alarm. Tetapi melintasi zona waktu membuat jam biologis dan jam setempat “bertabrakan” (clash of clocks). Terbang ke barat memperpanjang hari dan biasanya lebih mudah; terbang ke timur memperpendek hari dan biasanya lebih berat.</p>
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s152">Perencana</span>
+            <h3 data-i18n="s153">Rencana melawan jet lag</h3>
+            <div class="field"><span class="segmented" role="radiogroup" aria-label="Arah perjalanan" data-i18n-aria-label="s154">
+              <label><input type="radio" name="jetDir" value="west" checked=""><span data-i18n="s155">Terbang ke barat</span></label>
+              <label><input type="radio" name="jetDir" value="east"><span data-i18n="s156">Terbang ke timur</span></label>
+            </span></div>
+            <p class="muted small" id="jetExample">e.g. Jakarta → Abu Dhabi</p>
+            <ol id="jetOut" aria-live="polite"></ol>
+          </div>
+          <div class="card reveal">
+            <h4 data-i18n="s157">Untuk setiap perjalanan</h4>
+            <ul class="muted">
+              <li data-i18n="s158">Tidur cukup sebelum penerbangan; lelah ditambah lelah perjalanan memperparah jet lag.</li>
+              <li data-i18n="s159">Minum banyak air sebelum, selama, dan sesudah penerbangan, dan hindari alkohol serta kafein.</li>
+              <li data-i18n="s160">Jangan duduk diam terlalu lama: berdiri, berjalan, atau peregangan.</li>
+              <li data-i18n="s161">Jika sangat lelah setibanya di tujuan, tidur siang singkat 20–30 menit saja, bukan lama.</li>
+              <li data-i18n="s162">Begitu tiba, makan, tidur, bangun, dan beraktivitas sesuai waktu setempat secepat mungkin.</li>
+            </ul>
+            <p class="muted small" style="margin:0" data-i18n="s163">Sabar: penyesuaian butuh waktu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CHAPTER 3 ======================= -->
+    <section class="section" id="stages" data-nav="">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s164">Bab 3</span>
+          <h2 data-i18n="s165">Tahap Kehidupan</h2>
+          <p class="lede" data-i18n="s166">Tidak ada “satu ukuran untuk semua” seperti “semua orang butuh 8 jam”. Kebutuhan berbeda menurut usia, genetik, gaya hidup, aktivitas, dan stres, dan bahkan pada orang yang sama bisa berubah dari malam ke malam.</p>
+        </header>
+
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s167">Jelajahi</span>
+            <h3 data-i18n="s168">Kebutuhan tidur menurut usia</h3>
+            <p class="hint" data-i18n="s169">Pilih kelompok usia untuk melihat panduan umumnya.</p>
+            <div class="chips" id="ageChips" role="group" aria-label="Age groups"></div>
+            <div class="agebar" aria-hidden="true"><i id="ageFill"></i></div>
+            <div class="axis" aria-hidden="true"><span data-i18n="s313">0 j</span><span data-i18n="s314">6 j</span><span data-i18n="s315">12 j</span><span data-i18n="s316">18 j</span></div>
+            <p id="ageOut" style="margin:14px 0 0" aria-live="polite"></p>
+          </div>
+          <div class="card reveal">
+            <h3 data-i18n="s170">Umum ≠ individual</h3>
+            <p class="muted" data-i18n="s171">Kisaran 7–9 jam untuk orang dewasa adalah panduan populasi. Kebutuhanmu sendiri lebih spesifik dan berubah tiap malam. Orang dengan rata-rata 6 jam 45 menit bisa tidur 6 jam 30 menit di satu malam dan 7 jam 20 menit di malam lain, dan itu normal.</p>
+            <p class="muted" style="margin:0" data-i18n="s172">Ukuran terbaiknya adalah perasaanmu keesokan harinya: segar atau lelah, bertenaga atau mudah marah, suasana hati baik atau sumbu pendek?</p>
+          </div>
+        </div>
+
+        <div class="sub-head reveal" id="sleepnumbers"><h3 data-i18n="s173">Kenali angka tidurmu sendiri</h3></div>
+        <p class="sub-lede reveal" data-i18n="s174">Catat sleep diary atau pakai sleep tracker selama 7 malam, idealnya saat liburan atau saat kamu bisa bangun alami tanpa alarm.</p>
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s175">Kalkulator</span>
+            <h3 data-i18n="s176">Kebutuhan tidur alamimu</h3>
+            <p class="hint" data-i18n="s177">Masukkan jam tidur malam ke-4 sampai ke-7 dari minggu tanpa alarm; rata-ratanya adalah kebutuhan tidur umummu. (Angka di bawah hanya contoh.)</p>
+            <div class="inline">
+              <div class="field"><label for="n4" data-i18n="s178">Malam 4</label><input type="number" id="n4" min="3" max="14" step="0.25" value="7.5"></div>
+              <div class="field"><label for="n5" data-i18n="s179">Malam 5</label><input type="number" id="n5" min="3" max="14" step="0.25" value="8"></div>
+              <div class="field"><label for="n6" data-i18n="s180">Malam 6</label><input type="number" id="n6" min="3" max="14" step="0.25" value="7"></div>
+              <div class="field"><label for="n7" data-i18n="s181">Malam 7</label><input type="number" id="n7" min="3" max="14" step="0.25" value="7.5"></div>
+            </div>
+            <p class="muted small" style="margin:0" data-i18n="s182">Rata-ratamu</p>
+            <p class="big" id="needOut" style="margin:0" aria-live="polite">7 h 30 min</p>
+          </div>
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s183">Kalkulator</span>
+            <h3 data-i18n="s184">Skor efisiensi tidur</h3>
+            <p class="hint" data-i18n="s185">Total waktu tidur ÷ waktu di tempat tidur. Sekitar 85% ke atas tergolong “good sleeper”.</p>
+            <div class="inline">
+              <div class="field"><label for="tib" data-i18n="s186">Waktu di tempat tidur (menit)</label><input type="number" id="tib" min="1" max="1000" value="480"></div>
+              <div class="field"><label for="sol" data-i18n="s187">Menit untuk tertidur</label><input type="number" id="sol" min="0" max="600" value="15"></div>
+              <div class="field"><label for="waso" data-i18n="s188">Menit terjaga di malam hari</label><input type="number" id="waso" min="0" max="600" value="20"></div>
+            </div>
+            <div class="metric-row" id="seOut" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="grid g2 reveal" style="margin-top:18px">
+          <div class="card"><h4 data-i18n="s189">Waktu untuk tertidur (sleep onset latency)</h4><p class="muted" data-i18n="s190">Biasanya sekitar 10–20 menit. Jika setelah 30 menit masih terjaga, bisa jadi kamu memang belum siap tidur. Jika ini terjadi lebih dari 3 kali seminggu selama lebih dari 2 minggu, ada risiko insomnia yang sebaiknya dikonsultasikan ke ahli tidur.</p></div>
+          <div class="card"><h4 data-i18n="s191">Terbangun di tengah malam (WASO)</h4><p class="muted" data-i18n="s192">Terbangun di malam hari itu normal selama kamu mudah tertidur lagi, dalam sekitar 30 menit. Sekali lagi, jika terbangun lebih lama terjadi lebih dari 3 kali seminggu selama lebih dari 2 minggu, bicarakan dengan ahli tidur.</p></div>
+        </div>
+
+        <div class="sub-head reveal"><h3 data-i18n="s193">Tidur di setiap tahap kehidupan</h3></div>
+        <div class="tool reveal"><div id="stageTabs"></div></div>
+      </div>
+    </section>
+
+    <!-- ======================= CHAPTER 4 ======================= -->
+    <section class="section alt" id="mind" data-nav="">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s194">Bab 4</span>
+          <h2 data-i18n="s195">Tubuh &amp; Pikiran</h2>
+          <p class="lede" data-i18n="s196">Saat mau tidur, kita sering terjebak pikiran: besok, pekerjaan, uang, keluarga. Hidup modern membuat kita selalu “menyala”, sehingga ketika akhirnya berbaring, otak mulai memproses semuanya sekaligus.</p>
+        </header>
+
+        <div class="card reveal" id="worry">
+          <h3 data-i18n="s197">Lingkaran tidur–suasana hati</h3>
+          <p class="muted" data-i18n="s198">Tidur buruk menaikkan risiko cemas dan depresi, dan cemas serta depresi mengganggu tidur. Ini siklus yang sulit diputus kecuali kamu menangani kedua sisinya.</p>
+          <div class="loop" role="list">
+            <div class="node" role="listitem" data-i18n="s199">Cemas atau murung<small>otak menjadi sangat aktif</small></div>
+            <div class="node" role="listitem" data-i18n="s200">Fight-or-flight<small>adrenalin, jantung berdetak cepat, otot tegang</small></div>
+            <div class="node" role="listitem" data-i18n="s201">Sulit tidur atau mudah terbangun<small>dan takut tidak bisa tidur makin besar</small></div>
+            <div class="node" role="listitem" data-i18n="s202">Makin cemas dan murung<small>lingkaran berulang</small></div>
+          </div>
+          <p class="muted small" style="margin:14px 0 0" data-i18n="s203">Depresi juga bisa menggeser jam biologis: bangun terlalu dini, atau tidur terlalu banyak. Masalah yang berlangsung lama butuh pendekatan menyeluruh: terapi, perubahan gaya hidup, dan kadang obat. Menenangkan kekhawatiran butuh waktu dan latihan.</p>
+        </div>
+
+        <div class="sub-head reveal"><h3 data-i18n="s204">Lima cara menenangkan diri sebelum tidur</h3></div>
+        <p class="sub-lede reveal" data-i18n="s205">Coba di ruangan yang redup dan tenang. Dua di antaranya bisa dicoba langsung di bawah ini.</p>
+        <div class="split">
+          <div class="tool reveal" id="breathe">
+            <span class="tool-label" data-i18n="s206">Terpandu</span>
+            <h3 data-i18n="s207">1 · Pernapasan perut</h3>
+            <p class="hint" data-i18n="s208">Bernapaslah dari perut, bukan dada, lewat hidung. Lakukan 5–10 menit dengan mata tertutup. Jika 4-7-8 terasa sulit, coba 3-5.</p>
+            <div class="field"><span class="segmented" role="radiogroup" aria-label="Pola napas" data-i18n-aria-label="s209">
+              <label><input type="radio" name="breathMode" value="478" checked=""><span>4-7-8</span></label>
+              <label><input type="radio" name="breathMode" value="35"><span>3-5</span></label>
+            </span></div>
+            <div class="breath">
+              <div class="orb-wrap"><div class="orb" id="orb"></div><div class="orb-text"><b id="breathPhase">Ready</b><span id="breathCount">·</span></div></div>
+            </div>
+            <div class="inline" style="margin-top:10px;align-items:center">
+              <button class="btn btn-primary" id="breathBtn" type="button">Start</button>
+              <span class="muted small" id="breathStat">0 breaths · 0:00</span>
+            </div>
+          </div>
+
+          <div class="tool reveal" id="pmr">
+            <span class="tool-label" data-i18n="s210">Terpandu</span>
+            <h3 data-i18n="s211">2 · Relaksasi otot progresif</h3>
+            <p class="hint" data-i18n="s212">Pakai baju longgar dan bernapas pelan. Mulai dari ujung kaki, tegangkan tiap kelompok otot selama 5 detik, lalu lepaskan dan naik ke atas sampai wajah.</p>
+            <ol class="chips" style="list-style:none;padding:0" id="pmrSteps"></ol>
+            <div class="card" style="background:var(--bg);text-align:center">
+              <p class="muted small" style="margin:0" id="pmrCount">Step 1 of 7</p>
+              <h3 id="pmrName" style="margin:4px 0">Feet &amp; toes</h3>
+              <p class="big" id="pmrTimer" aria-live="off">5</p>
+              <p class="muted" id="pmrMsg" style="margin:0" aria-live="polite">Press Tense when you're ready.</p>
+            </div>
+            <div class="inline" style="margin-top:14px">
+              <button class="btn btn-primary" id="pmrTense" type="button">Tense (5 s)</button>
+              <button class="btn btn-ghost" id="pmrNext" type="button" disabled="">Next area →</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid g3 reveal" style="margin-top:18px">
+          <div class="card"><span class="ico" aria-hidden="true">📓</span><h4 data-i18n="s213">3 · Tuangkan lewat tulisan</h4><p class="muted" data-i18n="s214">Catat kekhawatiran di buku atau rekam voice note. Pikiran jadi “bernapas”, dan menulis tentang kejadian hari itu membantu memproses emosi serta menurunkan cemas.</p></div>
+          <div class="card"><span class="ico" aria-hidden="true">🏝️</span><h4 data-i18n="s215">4 · Bayangkan tempat yang tenang</h4><p class="muted" data-i18n="s216">Bayangkan pantai, hutan, atau ruangan nyaman dengan detail. Ini memindahkan otak dari “berpikir” ke “merasakan” dan mengalihkannya dari kekhawatiran.</p></div>
+          <div class="card"><span class="ico" aria-hidden="true">🔁</span><h4 data-i18n="s217">5 · Bangun rutinitas</h4><p class="muted" data-i18n="s218">Rutinitas yang konsisten dan kamar yang nyaman memperkuat kaitan antara tempat tidur dan rasa tenang, bukan frustrasi atau takut.</p></div>
+        </div>
+        <div class="callout reveal"><strong data-i18n="s219">Saat tempat tidur terasa menakutkan</strong><p data-i18n="s220">Jika sudah lama kesulitan tidur, tempat tidur dan kamar bisa terkait dengan frustrasi atau takut tidak bisa tidur, atau takut mimpi buruk, sleep paralysis, atau flashback setelah trauma. Ini butuh kesabaran dan kadang bantuan profesional.</p></div>
+
+        <div class="sub-head reveal" id="dreams"><h3 data-i18n="s221">Kekuatan mimpi</h3></div>
+        <p class="sub-lede reveal" data-i18n="s222">Mimpi paling sering terjadi saat tidur REM, ketika otak hampir sesibuk saat kamu terjaga. Ini adalah “shift malam” otak.</p>
+        <div class="grid g3 reveal">
+          <div class="card"><h4 data-i18n="s223">💗 Memproses emosi</h4><p class="muted" data-i18n="s224">Otak mengolah perasaan dan pengalaman hari itu, membantu mengelola stres dan menjaga keseimbangan emosi.</p></div>
+          <div class="card"><h4 data-i18n="s225">📚 Belajar &amp; ingatan</h4><p class="muted" data-i18n="s226">Bermimpi membantu memilah hal penting dan menyimpannya dengan lebih efisien.</p></div>
+          <div class="card"><h4 data-i18n="s227">💡 Kreativitas</h4><p class="muted" data-i18n="s228">Tidur REM menghubungkan bagian-bagian otak yang berjauhan, yang bisa memicu ide dan solusi baru.</p></div>
+          <div class="card"><h4 data-i18n="s229">🎭 Simulasi</h4><p class="muted" data-i18n="s230">Mimpi sering berlatih skenario yang mungkin kita hadapi, latihan tanpa risiko untuk kehidupan nyata.</p></div>
+          <div class="card"><h4 data-i18n="s231">🩹 Penyembuhan psikologis</h4><p class="muted" data-i18n="s232">Mimpi bisa membantu kita menghadapi trauma atau masalah, meski penafsirannya mungkin butuh bantuan profesional.</p></div>
+          <div class="card"><h4 data-i18n="s233">🌙 Tidak ingat mimpimu?</h4><p class="muted" data-i18n="s234">Bukan masalah. Bisa jadi kamu hanya tidak mengingatnya.</p></div>
+        </div>
+
+        <div class="sub-head reveal" id="habits"><h3 data-i18n="s235">Key habits sepanjang hari</h3></div>
+        <p class="sub-lede reveal" data-i18n="s236">Key habits memicu efek domino positif: membuat tidur lebih mudah, lebih dalam, dan bangun lebih segar. Centang yang sudah kamu lakukan (disimpan hanya di perangkat ini).</p>
+        <div class="tool reveal">
+          <div class="metric-row" style="justify-content:space-between;margin-bottom:18px">
+            <div style="flex:1 1 220px"><div class="small muted" id="habitCount">0 of 0 habits</div><div class="meter" style="margin-top:8px" aria-hidden="true"><i id="habitMeter"></i></div></div>
+            <button class="btn btn-ghost btn-sm" id="habitReset" type="button" data-i18n="s237">Atur ulang</button>
+          </div>
+          <div class="timeline" id="habitGroups"></div>
+        </div>
+        <div class="callout reveal"><strong data-i18n="s238">Apakah key habits menjamin tidur sempurna? Tidak.</strong><p data-i18n="s239">Bayangkan berkebun. Meski sudah direncanakan dengan baik, disiram, dan terkena cukup matahari, ada hari ketika tanaman tidak tumbuh sesuai harapan. Tidur pun begitu: dengan rutinitas dan kamar yang baik, tetap ada malam ketika kamu terbangun beberapa kali atau kurang segar. Tidur yang sesekali terganggu itu normal dan bisa karena banyak hal. Yang penting jangan terlalu khawatir. Tidak ada tidur yang sempurna, tetapi key habits membuat tidurmu jauh lebih sehat secara keseluruhan.</p></div>
+
+        <div class="sub-head reveal" id="rest"><h3 data-i18n="s240">Istirahat vs tidur, dan NSDR</h3></div>
+        <p class="sub-lede reveal" data-i18n="s241">Tidur adalah bentuk istirahat paling dalam: kamu tidak sadar akan sekelilingmu sementara tubuh memperbaiki diri dan otak menata ulang. <strong>Istirahat</strong> bisa sesederhana jeda dari aktivitas, seperti duduk dengan secangkir teh, membaca, atau menikmati pemandangan. Tidur adalah bentuk istirahat, tetapi tidak semua istirahat harus berupa tidur.</p>
+        <div class="grid g3 reveal" id="nsdrGrid"></div>
+        <div class="callout info reveal"><strong data-i18n="s242">Non-Sleep Deep Rest (NSDR)</strong><p data-i18n="s243">Serangkaian teknik untuk istirahat mendalam tanpa benar-benar tidur. Cari tempat tenang dan lakukan 10–20 menit, idealnya sebagai bagian dari rutinitas harian. Aplikasi atau rekaman terpandu bisa membantu. NSDR memberi pemulihan cepat dalam situasi tertentu. Ini bukan pengganti tidur sungguhan.</p></div>
+      </div>
+    </section>
+
+    <!-- ======================= CHAPTER 5 ======================= -->
+    <section class="section" id="bedroom" data-nav="">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s244">Bab 5</span>
+          <h2 data-i18n="s245">Pengaturan Kamar Tidur</h2>
+          <p class="lede" data-i18n="s246">Kamar yang tenang, gelap (atau sangat redup), dan sejuk dengan perlengkapan yang tepat bisa meningkatkan tidur secara besar. Rancang sebagai <strong>sensory oasis</strong>: kamar yang dibuat untuk menenangkan semua indramu.</p>
+        </header>
+
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s247">Daftar periksa</span>
+            <h3 data-i18n="s248">Bangun sensory oasis-mu</h3>
+            <div class="metric-row" style="margin-bottom:16px">
+              <div class="gauge" id="oasisRing" style="--p:0"><b id="oasisPct">0%</b></div>
+              <p class="muted small" style="margin:0;flex:1 1 180px" id="oasisMsg">Tick what your bedroom already has. Saved on this device only.</p>
+            </div>
+            <ul class="checks" id="oasisList"></ul>
+          </div>
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s249">Interaktif</span>
+            <h3 data-i18n="s250">Suhu kamar</h3>
+            <p class="hint" data-i18n="s251">Sekitar 18–22 °C biasanya ideal untuk tidur, meski kenyamanan tiap orang berbeda. Cari yang paling cocok untukmu. Ketebalan selimut atau seprai yang tepat juga membantu.</p>
+            <div class="field"><div class="row"><label for="tempRange" data-i18n="s252">Suhu ruangan</label><output id="tempOut">20 °C</output></div><input type="range" id="tempRange" min="14" max="30" step="1" value="20"></div>
+            <p id="tempMsg" style="margin:0" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="sub-head reveal" id="position"><h3 data-i18n="s253">Posisi tidur dan bantalmu</h3></div>
+        <p class="sub-lede reveal" data-i18n="s254">Posisi mana yang terbaik? <strong>Tidak ada.</strong> Yang penting posisimu menopang tulang belakang dan leher serta tidak menghalangi napas. Karena posisi sulit dikendalikan saat tidur, lebih mudah mengevaluasi kasur dan bantalmu.</p>
+        <div class="tool reveal"><span class="tool-label" data-i18n="s255">Jelajahi</span><div id="posTabs"></div></div>
+
+        <div class="sub-head reveal" id="mattress"><h3 data-i18n="s256">Memilih kasur</h3></div>
+        <p class="sub-lede reveal" data-i18n="s257">Kasur yang baik menopang tulang belakang, menyebarkan berat tubuh merata (mengurangi tekanan di pinggul, bahu, dan lutut), meredam gerakan pasangan, dan tahan sekitar 8 tahun. Kenyamanan datang tepat setelah dukungan. Coba sebelum membeli: berbaring beberapa menit, rasakan kekerasannya, dan pastikan ukurannya sesuai kamar.</p>
+        <div class="tool reveal">
+          <span class="tool-label" data-i18n="s258">Bandingkan</span>
+          <div class="chips" id="mattChips" role="group" aria-label="Mattress types"></div>
+          <div id="mattOut" aria-live="polite"></div>
+        </div>
+        <p class="muted small reveal" style="margin-top:10px" data-i18n="s259">Tanda sudah saatnya mengganti: bangun dengan pegal atau alergi, atau kasur sudah kehilangan bentuk setelah bertahun-tahun.</p>
+
+        <div class="sub-head reveal" id="pillow"><h3 data-i18n="s260">Memilih bantal</h3></div>
+        <div class="grid g2 reveal">
+          <div class="card"><h4 data-i18n="s261">Akibat bantal yang tidak pas</h4><p class="muted" data-i18n="s262">Terlalu tinggi atau rendah membuat leher miring, menyebabkan otot tegang, nyeri leher, bahkan sakit kepala pada side sleeper, dan sering terbangun. Bantal juga bisa menjadi sarang tungau debu dan memicu iritasi kulit atau jerawat.</p></div>
+          <div class="card"><h4 data-i18n="s263">Cara memilih</h4><ul class="muted"><li data-i18n="s264">Sesuaikan ketebalan dengan posisi tidurmu (lihat tab di atas).</li><li data-i18n="s265">Pilih isi yang cocok dengan kenyamanan dan alergimu: cari label “hipoalergenik” bila perlu.</li><li data-i18n="s266">Isi yang bisa disesuaikan, seperti memory foam cacah, memungkinkan kamu mengatur kepadatan.</li><li data-i18n="s267">Jika kamu mudah kepanasan, cari bantal gel atau sarung pendingin seperti tencel atau katun.</li><li data-i18n="s268">Periksa ketahanan, ulasan, dan garansi. Harga biasanya mencerminkan kualitas.</li></ul></div>
+        </div>
+
+        <div class="sub-head reveal" id="blanket"><h3 data-i18n="s269">Selimut berat (weighted blanket)</h3></div>
+        <p class="sub-lede reveal" data-i18n="s270">Selimut berat memberi “deep touch pressure” yang lembut, yang bisa meningkatkan oksitosin (hormon relaksasi) dan meredakan cemas, sehingga sebagian orang tidur lebih nyenyak. Hasilnya bervariasi.</p>
+        <div class="split">
+          <div class="tool reveal">
+            <span class="tool-label" data-i18n="s271">Kalkulator</span>
+            <h3 data-i18n="s272">Berat selimut</h3>
+            <p class="hint" data-i18n="s273">Panduan umumnya sekitar 10% dari berat badan.</p>
+            <div class="field"><label for="blanketKg" data-i18n="s274">Berat badan (kg)</label><input type="number" id="blanketKg" min="10" max="250" value="70"></div>
+            <p class="muted small" style="margin:0" data-i18n="s275">Berat selimut yang disarankan</p>
+            <p class="big" id="blanketOut" style="margin:0" aria-live="polite">7 kg</p>
+          </div>
+          <div class="grid g2">
+            <div class="card reveal"><span class="pill good" data-i18n="s276">Sering cocok</span><ul class="muted" style="margin-top:10px"><li data-i18n="s277">Orang dengan kecemasan</li><li data-i18n="s278">Orang dengan insomnia</li><li data-i18n="s279">Orang dengan ADHD</li></ul></div>
+            <div class="card reveal"><span class="pill bad" data-i18n="s280">Tidak cocok</span><ul class="muted" style="margin-top:10px"><li data-i18n="s281">Bayi dan anak kecil</li><li data-i18n="s282">Orang dengan masalah pernapasan</li><li data-i18n="s283">Siapa pun yang merasa sesak di ruang tertutup atau terhimpit</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CHAPTER 6 ======================= -->
+    <section class="section alt" id="problems" data-nav="">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s284">Bab 6</span>
+          <h2 data-i18n="s285">Masalah Tidur</h2>
+          <p class="lede" data-i18n="s286">Banyak hal aneh terjadi di malam hari. Kebanyakan umum dan tidak berbahaya, beberapa perlu diperhatikan. Cari atau filter, lalu buka kartunya.</p>
+        </header>
+        <div class="search reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <label class="sr-only" for="probSearch" data-i18n="s287">Cari masalah tidur</label>
+          <input type="search" id="probSearch" placeholder="Cari, mis. mengorok, tersentak, pasangan, gigi…" autocomplete="off" data-i18n-placeholder="s288">
+        </div>
+        <div class="chips reveal" id="probChips" role="group" aria-label="Filter by category"></div>
+        <div class="grid g2" id="probGrid"></div>
+        <div class="callout reveal" style="margin-top:28px"><strong data-i18n="s289">Kapan harus meminta bantuan</strong><p data-i18n="s290">Panduan ini bersifat edukasi umum. Jika masalahnya sering (misalnya lebih dari 3 malam seminggu selama lebih dari 2 minggu), sangat memengaruhi harimu, atau melibatkan henti napas, bicarakan dengan dokter atau spesialis tidur.</p></div>
+      </div>
+    </section>
+
+    <!-- ======================= TAKEAWAYS ======================= -->
+    <section class="section" id="takeaways">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="chapter-no" data-i18n="s291">Gambaran besar</span>
+          <h2 data-i18n="s292">Delapan gagasan untuk dibawa ke tempat tidur</h2>
+        </header>
+        <ol class="takeaways reveal">
+          <li data-i18n="s293"><b>Tidur adalah kemampuan alami.</b>Percayai itu; jangan terlalu bergantung pada alat bantu tidur.</li>
+          <li data-i18n="s294"><b>Bangun di jam yang teratur.</b>Termasuk akhir pekan. Ini menjangkarkan jam biologismu.</li>
+          <li data-i18n="s295"><b>Cari cahaya pagi.</b>Targetkan 10–15 menit setelah bangun, atau nyalakan lampu terang.</li>
+          <li data-i18n="s296"><b>Waspadai stimulan.</b>Stop kafein 6 jam sebelum tidur; hindari nikotin dan alkohol menjelang tidur.</li>
+          <li data-i18n="s297"><b>Bergerak, dan makan dengan baik.</b>Selesaikan olahraga intens 2–3 jam sebelum tidur; makan malam 3–4 jam sebelumnya.</li>
+          <li data-i18n="s298"><b>Rileks di jam terakhir.</b>Mandi air hangat, membaca, musik, atau napas, di kamar yang redup, sejuk, dan tenang.</li>
+          <li data-i18n="s299"><b>Kebutuhan itu personal.</b>Catat seminggu dan nilai dari perasaanmu, bukan dari angka ajaib.</li>
+          <li data-i18n="s300"><b>Cari bantuan bila perlu.</b>Masalah yang menetap layak diperiksa profesional.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================= ABOUT ======================= -->
+    <section class="section alt" id="about">
+      <div class="container about">
+        <div class="reveal">
+          <span class="chapter-no" data-i18n="s301">Tentang</span>
+          <h2 data-i18n="s302">Buku di balik panduan ini</h2>
+          <p data-i18n="s303">Situs ini adalah pendamping interaktif independen dan tidak resmi untuk <strong><em>The Power of Sleep</em></strong> karya <strong>Vishal Dasani</strong> (Kawan Pustaka, 2024; ISBN 978-979-757-822-0), yang ditulis dalam bahasa Indonesia. Buku ini adalah seri kedua setelah <em>Sleep Healing</em>, berdasarkan pengalamannya sebagai sleep coach.</p>
+          <p class="muted" data-i18n="s304">Dasani memulai karier sebagai konsultan keuangan, lalu menjadi pemilik gym dan personal trainer. Pada 2020 ia mendalami sleep science lewat program di Islandia, Amerika Serikat, dan Australia, dan menyimpulkan bahwa tidur adalah “pilar ketiga” kesehatan setelah makanan dan olahraga. Ia mendirikan White Noise (<a href="https://whitenoise.id" rel="noopener">whitenoise.id</a>) untuk edukasi, konsultasi, dan pemulihan tidur.</p>
+          <p data-i18n="s305">Seluruh teks di sini adalah ringkasan dan parafrase orisinal, dengan alat interaktif yang dibangun dari gagasan buku. Untuk penjelasan lengkap, contoh, dan kisah pribadi penulis, silakan baca bukunya langsung melalui penerbit, <a href="https://www.kawanpustaka.com" rel="noopener">Kawan Pustaka</a>.</p>
+        </div>
+        <div class="reveal" style="display:grid;gap:22px;justify-items:start">
+          <div class="book-cover" aria-hidden="true"><b data-i18n="s306">The Power of Sleep</b><small data-i18n="s307">Vishal Dasani</small></div>
+          <div class="callout" style="margin:0"><strong data-i18n="s308">Disklaimer medis</strong><p data-i18n="s309">Ini adalah konten edukasi umum, bukan saran, diagnosis, atau pengobatan medis. Kalkulatornya disederhanakan dan bersifat ilustrasi. Bicarakan dengan tenaga profesional untuk masalah tidur yang menetap, suplemen, obat, keselamatan tidur bayi, atau kondisi kesehatan apa pun.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p style="margin:0" data-i18n="s310">Panduan buatan penggemar, tidak resmi, dan tidak berafiliasi dengan atau didukung oleh penulis maupun penerbit. <em>The Power of Sleep</em> dan isinya © Vishal Dasani / Kawan Pustaka. Kode situs bersifat sumber terbuka (MIT).</p>
+      <p style="margin:0" data-i18n="s311">Selamat tidur. 🌙</p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+
+
+</body></html>
