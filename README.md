@@ -7,6 +7,8 @@ tools you can play with, so people can understand and improve their sleep.
 > **Not affiliated with the author or publisher.** All copy on the site is original summary and paraphrase.
 > For the full explanations, examples and stories, please read and support the book.
 
+**Live:** https://lullaby-sleep.netlify.app
+
 ## What's inside
 
 Six sections that follow the book's chapters, plus a quick self-check at the top:
@@ -42,8 +44,10 @@ Or open `index.html` directly in a browser, or serve the folder with any static 
 
 ## Deploy
 
-It's a static site. Push to GitHub and enable **GitHub Pages** (Settings → Pages → deploy from branch, root),
-or drop the folder on Netlify / Cloudflare Pages / Vercel.
+It's a static site. `npm run build` copies the site files into `dist/` (that folder is what gets published).
+
+- **Netlify:** `netlify.toml` already sets the build command and publish directory. Deploy with `npx netlify-cli deploy --prod --dir dist`, or connect the repo for deploys on every push.
+- **Anywhere else:** GitHub Pages, Cloudflare Pages or Vercel work too; publish the `dist/` folder.
 
 ## Project structure
 
