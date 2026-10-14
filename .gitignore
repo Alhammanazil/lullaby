@@ -5,3 +5,6 @@ Thumbs.db
 .env
 dist/
 .netlify/
+
+.vercel
+.env*

@@ -7,7 +7,7 @@ tools you can play with, so people can understand and improve their sleep.
 > **Not affiliated with the author or publisher.** All copy on the site is original summary and paraphrase.
 > For the full explanations, examples and stories, please read and support the book.
 
-**Live:** https://lullaby-sleep.netlify.app
+**Live:** https://lullaby-sleep.vercel.app
 
 ## What's inside
 
@@ -46,7 +46,7 @@ Or open `index.html` directly in a browser, or serve the folder with any static 
 
 It's a static site. `npm run build` copies the site files into `dist/` (that folder is what gets published).
 
-- **Netlify:** `netlify.toml` sets the build command and publish directory, and the site is connected to this repo, so every push to `main` deploys automatically. A manual deploy also works: `npx netlify-cli deploy --prod --dir dist`.
+- **Vercel:** `vercel.json` sets the build command, output directory and headers, and the site is connected to this repo, so every push to `main` deploys automatically. `server.js` is only the local preview server and is excluded from deploys via `.vercelignore`. A manual deploy also works: `npx vercel --prod`.
 - **Anywhere else:** GitHub Pages, Cloudflare Pages or Vercel work too; publish the `dist/` folder.
 
 ## Project structure
